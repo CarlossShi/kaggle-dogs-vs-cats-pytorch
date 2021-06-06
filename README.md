@@ -27,7 +27,7 @@ Kaggle猫狗分类比赛的Pytorch实现, 修改自[Image Classification with Py
 ├── model
 ├── result
 └── data
-    ├── dogs cats
+    ├── dogs-vs-cats
     │   ├── *.jpg/*.png
     │   └── ...
     ├── hearthstone
