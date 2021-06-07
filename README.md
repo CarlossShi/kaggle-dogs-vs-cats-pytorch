@@ -42,13 +42,13 @@ Kaggle猫狗分类比赛的Pytorch实现, 修改自[Image Classification with Py
 
 Run the following code in terminal. Check test results.
 
-![dogs cats test](assets/dogs_cats_test.png)
-
-![hearthstone test](assets/hearthstone_test.png)
-
 ``` bash
 python test.py -d ./assets/dogs-cats/
 ```
+
+![dogs cats test](assets/dogs_cats_test.png)
+
+![hearthstone test](assets/hearthstone_test.png)
 
 # License
 
