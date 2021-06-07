@@ -79,7 +79,6 @@ def factorize(n):
 
 
 def visualize(path):
-    print(path)
     fig = plt.figure()
     name = path.split('/')[-2]
     fig.suptitle(str(name).title() + ' Test')
