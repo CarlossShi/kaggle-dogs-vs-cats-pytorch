@@ -4,10 +4,6 @@ Pytorch implementation for Dogs vs. Cats Redux: Kernels Edition, Kaggle competit
 
 Kaggle猫狗分类比赛的Pytorch实现, 修改自[Image Classification with Pytorch](https://www.kaggle.com/reukki/pytorch-cnn-tutorial-with-cats-and-dogs/), 中国科学院大学深度学习作业.
 
-![dogs cats test](assets/dogs_cats_test.png)
-
-![hearthstone test](assets/hearthstone_test.png)
-
 # Requirements
 
 - Colab with P100 GPU and 27.2 gigabytes RAM 
@@ -45,6 +41,10 @@ Kaggle猫狗分类比赛的Pytorch实现, 修改自[Image Classification with Py
 ## Test with Pretrained Model
 
 Run the following code in terminal. Check test results.
+
+![dogs cats test](assets/dogs_cats_test.png)
+
+![hearthstone test](assets/hearthstone_test.png)
 
 ``` bash
 python test.py -d ./assets/dogs-cats/
