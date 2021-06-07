@@ -1,38 +1,16 @@
 import argparse
 import os
-import zipfile
-import glob
-import time
-import pickle
-import pprint
 import math
-
 
 import matplotlib.pyplot as plt
 import PIL
 
-import numpy as np
-import pandas as pd
-import sklearn.model_selection
 
-import torch
 import torch.nn as nn
 import torch
-import torch.optim as optim
 import torch.nn.functional as f
-
 import torchvision
 import torch.utils.data
-
-# for process visualization
-import tqdm
-# https://stackoverflow.com/a/59345557/12224183
-# https://calmcode.io/tqdm/nested-loops.html
-
-# # for TPU
-# assert os.environ['COLAB_TPU_ADDR'], 'Make sure to select TPU from Edit > Notebook settings > Hardware accelerator'
-# import torch_xla
-# import torch_xla.core.xla_model as xm
 
 
 class DataSet(torch.utils.data.Dataset):
@@ -53,9 +31,9 @@ class DataSet(torch.utils.data.Dataset):
         return img_transformed, label
 
 
-class CNN(nn.Module):
+class cnn(nn.Module):
     def __init__(self):
-        super(CNN, self).__init__()
+        super(cnn, self).__init__()
 
         self.layer1 = nn.Sequential(
             nn.Conv2d(3, 128, kernel_size=3, padding=0, stride=2),
@@ -100,11 +78,12 @@ def factorize(n):
     return temp, int(n / temp)
 
 
-def visualize(name):
+def visualize(path):
+    print(path)
     fig = plt.figure()
+    name = path.split('/')[-2]
     fig.suptitle(str(name).title() + ' Test')
     model.eval()
-    path = '/content/drive/MyDrive/kaggle-dogs-vs-cats-pytorch/data/' + name + '/'
     mytest_list = [path + _ for _ in os.listdir(path)]
     mytest_num = len(mytest_list)
     height, width = factorize(mytest_num)
@@ -113,7 +92,6 @@ def visualize(name):
                                                   torchvision.transforms.Resize((224, 224)),
                                                   torchvision.transforms.ToTensor()
     ]))
-
     with torch.no_grad():
         for i, _ in enumerate(mytest_data):
             data, _ = torch.utils.data.DataLoader(dataset=_)
@@ -126,6 +104,7 @@ def visualize(name):
             ax.set_axis_off()  # https://stackoverflow.com/a/52776192/12224183
             plt.imshow(mytest_cache[i][0])
             ax.set_title('{}% dog'.format(int(pred*100)) if pred > 0.5 else '{}% cat'.format(int(100*(1-pred))))
+    plt.show()
 
 
 model = torch.load('assets/20210604081904.pt')

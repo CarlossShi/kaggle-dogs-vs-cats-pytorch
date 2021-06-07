@@ -37,14 +37,18 @@ Kaggle猫狗分类比赛的Pytorch实现, 修改自[Image Classification with Py
 ```
 
 4. Find and classify some pictures to be tested into subfolders of `/data/`.
-5. Appropriately modify the parameters like batch size, learning rate or epoch size.
+5. Appropriately modify parameters like batch size, learning rate or epoch size.
 6. Run the code. Test results are shown above, while training is demonstrated below.
 
 ![traning curve](assets/traning_curve.png)
 
 ## Test with Pretrained Model
 
+Run the following code in terminal. Check test results.
 
+``` bash
+python test.py -d ./assets/dogs-cats/
+```
 
 # License
 
